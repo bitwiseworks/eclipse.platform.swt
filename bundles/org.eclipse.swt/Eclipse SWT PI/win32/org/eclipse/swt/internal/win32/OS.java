@@ -78,7 +78,8 @@ public class OS extends C {
 			OS.GetVersionExA ((OSVERSIONINFOA)info);
 		}
 		OSVERSIONINFO.sizeof = info.dwOSVersionInfoSize;
-		
+
+		IsOdin32 = true; // rousseau: set it hard for now
 		IsWin32s = info.dwPlatformId == VER_PLATFORM_WIN32s;
 		IsWin95 = info.dwPlatformId == VER_PLATFORM_WIN32_WINDOWS;
 		IsWinNT = info.dwPlatformId == VER_PLATFORM_WIN32_NT;
