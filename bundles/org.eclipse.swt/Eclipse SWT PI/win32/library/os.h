@@ -694,6 +694,11 @@
 #endif
 
 #ifndef _WIN32_WCE
+///-------------------------------------------------------------------[swt-os2]
+/// The structure _BP_PAINTPARAMS is also defined in 'uxtheme.h'.
+/// Using #ifndef struct-or-typedef does not work for type definitions.
+/// So we use __WIN32OS2__ to prevent the definition below.
+#ifndef __WIN32OS2__
 #ifndef _BP_PAINTPARAMS
 typedef HANDLE HPAINTBUFFER;
 typedef struct _BP_PAINTPARAMS {
@@ -703,6 +708,8 @@ typedef struct _BP_PAINTPARAMS {
     const BLENDFUNCTION *pBlendFunction;
 } BP_PAINTPARAMS, *PBP_PAINTPARAMS;
 #endif
+#endif  /* __WIN32OS2__ */
+///----------------------------------------------------------------------------
 
 #ifndef PROPERTYKEY_DEFINED
 #define PROPERTYKEY_DEFINED
