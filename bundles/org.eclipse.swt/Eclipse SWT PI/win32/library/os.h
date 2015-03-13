@@ -644,6 +644,14 @@
 #define LPSHELLEXECUTEINFOW LPSHELLEXECUTEINFO
 #endif /* _WIN32_WCE */
 
+///-------------------------------------------------------------------[swt-os2]
+/// Map to older version
+#define GetWindowLongPtrA GetWindowLongA
+#define SetWindowLongPtrA SetWindowLongA
+#define GetWindowLongPtrW GetWindowLongW
+#define SetWindowLongPtrW SetWindowLongW
+///----------------------------------------------------------------------------
+
 #ifndef WIN32_PLATFORM_HPC2000
 #define NO_CommandBar_1AddAdornments
 #define NO_CommandBar_1Create
@@ -878,7 +886,10 @@ typedef struct tagGESTURECONFIG {
 
 #include "os_custom.h"
 
-#if defined (_WIN64) || defined (_WIN32_WCE)
+//~ #if defined (_WIN64) || defined (_WIN32_WCE)
+///-------------------------------------------------------------------[swt-os2]
+#if defined (_WIN64) || defined (_WIN32_WCE) || defined (__WIN32OS2__)
+///----------------------------------------------------------------------------
 #define PRINT_CODE(buf, size, format, code) sprintf(buf, format, code);
 #else
 #define PRINT_CODE(buf, size, format, code) sprintf_s(buf, size, format, code);
