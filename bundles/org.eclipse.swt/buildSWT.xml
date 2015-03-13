@@ -532,6 +532,18 @@
 		<javac includeantruntime="false" srcdir="${buildDir}"></javac>
 	</target>
 
+	<target name="build_classes_odin32">
+		<!--echo>Building ${cp} ${is64}</echo-->
+		<echo>Building from: ${srcDir}</echo>
+		<javac
+			includeantruntime="false"
+			verbose="no"
+			srcdir="${srcDir}"
+			destdir="${destDir}"
+			>
+		</javac>
+	</target>
+
 	<!-- common build tasks -->
 	<target name="new_release">
 		<property name="natives_changed" value="true"/>
