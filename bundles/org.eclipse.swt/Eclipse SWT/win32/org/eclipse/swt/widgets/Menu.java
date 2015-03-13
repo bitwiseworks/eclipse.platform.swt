@@ -1582,7 +1582,7 @@ void update () {
 	* WM_MEASURECHILD and WM_DRAWITEM cause Vista to lose
 	* the menu theme.
 	*/	
-	if (!OS.IsWin95) {
+	if (!OS.IsWin95 && !OS.IsOdin32) {	// rousseau: patch here for now, later in Odin32 ?
 		if (OS.WIN32_VERSION < OS.VERSION (6, 0)) {
 			MENUITEMINFO info = new MENUITEMINFO ();
 			info.cbSize = MENUITEMINFO.sizeof;
