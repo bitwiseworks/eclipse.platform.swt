@@ -371,6 +371,42 @@
 		<antcall target="replace64"/>
 	</target>
 
+	<target name="copy.odin32.src">
+		<!--property name="copy.src.dir" value="${temp.folder}/@dot.src"/-->
+		<property name="copy.src.dir" value="${temp.folder}"/>
+		<!--delete dir="${copy.src.dir}" quiet="true"/-->
+		<copy todir="${copy.src.dir}" failonerror="true" overwrite="false">
+			<fileset dir="${plugindir}/Eclipse SWT/common/"/>
+			<fileset dir="${plugindir}/Eclipse SWT/common_j2se/" excludes="**/*._properties"/>
+			<fileset dir="${plugindir}/Eclipse SWT/win32/"/>
+			<fileset dir="${plugindir}/Eclipse SWT Accessibility/common/"/>
+			<fileset dir="${plugindir}/Eclipse SWT Accessibility/win32/"/>
+			<fileset dir="${plugindir}/Eclipse SWT AWT/common/"/>
+			<fileset dir="${plugindir}/Eclipse SWT AWT/win32/"/>
+			<fileset dir="${plugindir}/Eclipse SWT Browser/common/"/>
+			<fileset dir="${plugindir}/Eclipse SWT Browser/win32/"/>
+			<fileset dir="${plugindir}/Eclipse SWT Mozilla/common/"/>
+			<fileset dir="${plugindir}/Eclipse SWT Mozilla/win32/"/>
+			<fileset dir="${plugindir}/Eclipse SWT WebKit/win32/"/>
+			<fileset dir="${plugindir}/Eclipse SWT Custom Widgets/common/"/>
+			<fileset dir="${plugindir}/Eclipse SWT Drag and Drop/common/"/>
+			<fileset dir="${plugindir}/Eclipse SWT Drag and Drop/win32/"/>
+			<fileset dir="${plugindir}/Eclipse SWT OLE Win32/win32/"/>
+			<fileset dir="${plugindir}/Eclipse SWT OpenGL/win32/"/>
+			<fileset dir="${plugindir}/Eclipse SWT OpenGL/common/"/>
+			<fileset dir="${plugindir}/Eclipse SWT PI/common_j2se/"/>
+			<fileset dir="${plugindir}/Eclipse SWT PI/common/"/>
+			<fileset dir="${plugindir}/Eclipse SWT PI/win32/"/>
+			<fileset dir="${plugindir}/Eclipse SWT Printing/common/"/>
+			<fileset dir="${plugindir}/Eclipse SWT Printing/win32/"/>
+			<fileset dir="${plugindir}/Eclipse SWT Program/common/"/>
+			<fileset dir="${plugindir}/Eclipse SWT Program/win32/"/>
+			<fileset dir="${plugindir}/Eclipse SWT Theme/win32/"/>
+		</copy>
+		<!--antcall target="copy.translationfiles"/-->
+		<antcall target="replace64"/>
+	</target>
+
 	<target name="copy.wpf.src">
 		<property name="copy.src.dir" value="${temp.folder}/@dot.src"/>
 		<delete dir="${copy.src.dir}" quiet="true"/>
