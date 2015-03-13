@@ -21,6 +21,7 @@ public class OS extends C {
 	/*
 	* SWT Windows flags
 	*/
+	public static final boolean IsOdin32;
 	public static final boolean IsWin32s;
 	public static final boolean IsWin95;
 	public static final boolean IsWinNT;
