@@ -12,6 +12,9 @@
 #include "swt.h"
 #include "com_structs.h"
 #include "com_stats.h"
+#ifdef __WIN32OS2__
+#include <excpt.h>
+#endif
 
 #ifndef COM_NATIVE
 #define COM_NATIVE(func) Java_org_eclipse_swt_internal_ole_win32_COM_##func

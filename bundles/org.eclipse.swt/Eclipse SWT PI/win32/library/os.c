@@ -12,6 +12,9 @@
 #include "swt.h"
 #include "os_structs.h"
 #include "os_stats.h"
+#ifdef __WIN32OS2__
+#include <excpt.h>
+#endif
 
 #ifndef OS_NATIVE
 #define OS_NATIVE(func) Java_org_eclipse_swt_internal_win32_OS_##func
