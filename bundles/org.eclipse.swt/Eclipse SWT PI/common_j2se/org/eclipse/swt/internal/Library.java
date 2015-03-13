@@ -238,7 +238,7 @@ static boolean load (String libName, StringBuffer message) {
  * @param name the name of the library to load
  */
 public static void loadLibrary (String name) {
-	loadLibrary (name, true);
+	loadLibrary (name, !os().equals("os2"));
 }
 
 /**
