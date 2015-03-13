@@ -689,7 +689,7 @@ protected void init () {
 	systemFont = getSystemFont();
 
 	/* Initialize scripts list */
-	if (!OS.IsWinCE) {
+	if (!OS.IsWinCE && !OS.IsOdin32) {
 		long /*int*/ [] ppSp = new long /*int*/ [1];
 		int [] piNumScripts = new int [1];
 		OS.ScriptGetProperties (ppSp, piNumScripts);
