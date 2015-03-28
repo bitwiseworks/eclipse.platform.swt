@@ -80,7 +80,7 @@ public class OS extends C {
 		}
 		OSVERSIONINFO.sizeof = info.dwOSVersionInfoSize;
 
-		IsOdin32 = true; // rousseau: set it hard for now
+		IsOdin32 = System.getProperty("os.name").equals("OS/2");
 		IsWin32s = info.dwPlatformId == VER_PLATFORM_WIN32s;
 		IsWin95 = info.dwPlatformId == VER_PLATFORM_WIN32_WINDOWS;
 		IsWinNT = info.dwPlatformId == VER_PLATFORM_WIN32_NT;
@@ -91,7 +91,17 @@ public class OS extends C {
 		WIN32_MAJOR = info.dwMajorVersion;
 		WIN32_MINOR = info.dwMinorVersion;
 		WIN32_VERSION = VERSION (WIN32_MAJOR, WIN32_MINOR);
-		IsUnicode = !IsWin32s && !IsWin95;
+
+		//! Odin32 - Quick Fix for issues #3 and #5
+		/*
+		 * Using UniCode currently does not work correctly with Odin32.
+		 * Since using UniCode results in a whole bunch of other APIs and
+		 * structures used at the JNI-layer, we'll turn it off for now and
+		 * re-address it when more of the GUI related issues are fixed.
+		 * TODO: Revisit UniCode stuff
+		 * TASKREF: 0cc65284-d75c-11e4-8088-33d6345a1ec3
+		 */
+		IsUnicode = !IsWin32s && !IsWin95 && !IsOdin32;
 
 		/* Load the manifest to force the XP Theme */
 		if (System.getProperty (NO_MANIFEST) == null) {
