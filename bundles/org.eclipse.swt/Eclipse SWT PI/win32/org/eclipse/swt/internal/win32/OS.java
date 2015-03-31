@@ -92,7 +92,7 @@ public class OS extends C {
 		WIN32_MINOR = info.dwMinorVersion;
 		WIN32_VERSION = VERSION (WIN32_MAJOR, WIN32_MINOR);
 
-		//! Odin32 - Quick Fix for issues #3 and #5
+		//! Odin32 - Quick Fix for issues #5 and #6
 		/*
 		 * Using UniCode currently does not work correctly with Odin32.
 		 * Since using UniCode results in a whole bunch of other APIs and
