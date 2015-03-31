@@ -321,6 +321,20 @@ Shell (Display display, Shell parent, int style, long /*int*/ handle, boolean em
  */
 public Shell (Shell parent) {
 	this (parent, OS.IsWinCE ? SWT.NONE : SWT.DIALOG_TRIM);
+
+	//! Odin32 - Fix for issue #3
+	/*
+	 * For a new Shell with a Display as the parent the window size is correct.
+	 * But when a Shell is the parent the window size is incorrect.
+	 * This is a quick fix at the JNI-level.
+	 * TODO: Check the other constructor variants + Odin32 behaviour
+	 * TASKREF: ed0c5b44-d75d-11e4-89e9-ef4b21e7bd04
+	 */
+	if (OS.IsOdin32) {
+		Rectangle r;
+		r=parent.getBounds();
+		this.setSize(r.width,r.height);
+	}
 }
 
 /**
