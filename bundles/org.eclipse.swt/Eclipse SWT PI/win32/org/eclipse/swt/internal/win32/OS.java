@@ -21,7 +21,18 @@ public class OS extends C {
 	/*
 	* SWT Windows flags
 	*/
-	public static final boolean IsOdin32;
+	public static final boolean IsOdin32;	// Application Programs should not
+											// use 'if (IsOdin32)' to determine
+											// if they are running under Odin32
+											// (or OS/2) because this definition
+											// is not part of the official
+											// eclipse.platform.swt repository
+											// and will thus break portability.
+											//
+											// Instead they should use
+											// 'if (System.getProperty("os.name").equals("OS/2"))'
+											// which, if true, implies IsOdin32
+											// to be true.
 	public static final boolean IsWin32s;
 	public static final boolean IsWin95;
 	public static final boolean IsWinNT;
@@ -80,7 +91,10 @@ public class OS extends C {
 		}
 		OSVERSIONINFO.sizeof = info.dwOSVersionInfoSize;
 
-		IsOdin32 = System.getProperty("os.name").equals("OS/2");
+		IsOdin32 = System.getProperty("os.name").equals("OS/2");	// Don't use IsOdin32 in
+																	// Application Programs.
+																	// See note above around
+																	// line 24.
 		IsWin32s = info.dwPlatformId == VER_PLATFORM_WIN32s;
 		IsWin95 = info.dwPlatformId == VER_PLATFORM_WIN32_WINDOWS;
 		IsWinNT = info.dwPlatformId == VER_PLATFORM_WIN32_NT;
