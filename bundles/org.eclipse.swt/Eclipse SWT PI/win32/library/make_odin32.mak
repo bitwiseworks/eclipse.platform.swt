@@ -173,6 +173,7 @@ swt.dll: compile-swtdll-sources
 	@echo.
 	@echo [$@]
 	gcc -Zomf -Zdll -L$(ODIN32_SDK)/$(ODIN32_SDK_OUT)/os2.x86/$(ODIN32_SDK_BUILD)/stage/lib $(SWT_OBJS) $(ODIN32_LIBS) -o $@
+	-wdump $@>$@.wdump
 	@bldlevel $@
 
 
@@ -183,6 +184,7 @@ swt-awt.dll: compile-swtawtdll-sources
 	@echo.
 	@echo [$@]
 	gcc -Zomf -Zdll -L$(ODIN32_SDK)/$(ODIN32_SDK_OUT)/os2.x86/$(ODIN32_SDK_BUILD)/stage/lib $(AWT_OBJS) $(ODIN32_LIBS) $(AWT_LIBS) -o $@
+	-wdump $@>$@.wdump
 	@bldlevel $@
 
 
