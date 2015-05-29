@@ -20,7 +20,7 @@
 #ifndef BUILD_MACHINE
 #define BUILD_MACHINE "**UNKNOWN**"
 #endif
-static const char bldlevel[] = "@#Project swt-os2:0.5#@##1## 31 Mar 2015 00:00:00     "BUILD_MACHINE"::::3::@@Standard Widget Toolkit for OS/2 (alpha level)";
+static const char bldlevel[] = "@#Project swt-os2:0.5#@##1## 08 May 2015 00:00:00     "BUILD_MACHINE"::::5::@@Standard Widget Toolkit for OS/2 (alpha-1)";
 
 /* Prototypes */
 BOOL WINAPI DllMain(HANDLE hInstDLL, DWORD dwReason, LPVOID lpvReserved);
@@ -71,20 +71,20 @@ unsigned long _System _DLL_InitTerm(unsigned long hModule, unsigned long  ulFlag
 		case 0:
 			_CRT_init();
 			__ctordtorInit();
-			printf("swt.dll::_DLL_InitTerm Attach\n");
+			///printf("swt.dll::_DLL_InitTerm Attach\n");
 			//~ system("touch ____DLL_Attach____");
 			//~ rc = RegisterLxDll((HINSTANCE)hModule, LibMain, (PVOID)NULL, 0, 0, 0);
 			rc = RegisterLxDll((HINSTANCE)hModule, DllMain, (PVOID)NULL, 0, 0, 0);
 			break;
 		case 1:
-			printf("swt.dll::_DLL_InitTerm Detach\n");
+			///printf("swt.dll::_DLL_InitTerm Detach\n");
 			//~ system("touch ____DLL_Detach____");
 			rc = UnregisterLxDll((HINSTANCE)hModule);
 			__ctordtorTerm();
 			 _CRT_term();
 			break;
 		default:
-			printf("swt:dll::??????????????????\n");
+			///printf("swt:dll::??????????????????\n");
 			//~ system("touch ____DLL_WHAT____");
 			break;
 	}
