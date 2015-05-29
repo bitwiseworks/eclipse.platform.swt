@@ -90,19 +90,19 @@ ODIN32_LIBS+=-limm32os2
 ODIN32_LIBS+=-luser32
 ODIN32_LIBS+=-lole32
 ODIN32_LIBS+=-loleaut32
-#ODIN32_LIBS+=olecli32
-#ODIN32_LIBS+=olepro32
+#ODIN32_LIBS+=-lolecli32
+#ODIN32_LIBS+=-lolepro32
 ODIN32_LIBS+=-lshell32
 ODIN32_LIBS+=-lwinspool
 ODIN32_LIBS+=-lcrypt32
 ODIN32_LIBS+=-lwininet
 ODIN32_LIBS+=-lshlwapi
 ODIN32_LIBS+=-lmsvfw32
-#ODIN32_LIBS+=common
-#ODIN32_LIBS+=unicode
-#ODIN32_LIBS+=libwrap
-#ODIN32_LIBS+=jpeglib
-#ODIN32_LIBS+=usp10
+#ODIN32_LIBS+=-lcommon
+#ODIN32_LIBS+=-lunicode
+#ODIN32_LIBS+=-llibwrap
+#ODIN32_LIBS+=-ljpeglib
+#ODIN32_LIBS+=-lusp10
 
 
 # -------------------------------------------------------------------- [Linker]
