@@ -3539,7 +3539,7 @@ JNIEXPORT jint JNICALL OS_NATIVE(FormatMessageA)
 	jint rc = 0;
 	OS_NATIVE_ENTER(env, that, FormatMessageA_FUNC);
 	if (arg4) if ((lparg4 = (*env)->GetIntLongArrayElements(env, arg4, NULL)) == NULL) goto fail;
-	rc = (jint)FormatMessageA(arg0, (LPCVOID)arg1, arg2, arg3, (LPSTR)lparg4, arg5, (va_list*)arg6);
+	rc = (jint)FormatMessageA(arg0, (LPCVOID)arg1, arg2, arg3, (LPSTR)lparg4, arg5, (LPDWORD)(va_list*)arg6);
 fail:
 	if (arg4 && lparg4) (*env)->ReleaseIntLongArrayElements(env, arg4, lparg4, 0);
 	OS_NATIVE_EXIT(env, that, FormatMessageA_FUNC);
@@ -3555,7 +3555,7 @@ JNIEXPORT jint JNICALL OS_NATIVE(FormatMessageW)
 	jint rc = 0;
 	OS_NATIVE_ENTER(env, that, FormatMessageW_FUNC);
 	if (arg4) if ((lparg4 = (*env)->GetIntLongArrayElements(env, arg4, NULL)) == NULL) goto fail;
-	rc = (jint)FormatMessageW(arg0, (LPCVOID)arg1, arg2, arg3, (LPWSTR)lparg4, arg5, (va_list*)arg6);
+	rc = (jint)FormatMessageW(arg0, (LPCVOID)arg1, arg2, arg3, (LPWSTR)lparg4, arg5, (LPDWORD)(va_list*)arg6);
 fail:
 	if (arg4 && lparg4) (*env)->ReleaseIntLongArrayElements(env, arg4, lparg4, 0);
 	OS_NATIVE_EXIT(env, that, FormatMessageW_FUNC);
@@ -18057,7 +18057,7 @@ JNIEXPORT jboolean JNICALL OS_NATIVE(UnmapViewOfFile)
 {
 	jboolean rc = 0;
 	OS_NATIVE_ENTER(env, that, UnmapViewOfFile_FUNC);
-	rc = (jboolean)UnmapViewOfFile((LPCVOID)arg0);
+	rc = (jboolean)UnmapViewOfFile((LPVOID)arg0);	// rousseau: Check proto
 	OS_NATIVE_EXIT(env, that, UnmapViewOfFile_FUNC);
 	return rc;
 }
@@ -18172,7 +18172,7 @@ JNIEXPORT jint JNICALL OS_NATIVE(UrlCreateFromPathA)
 	if (arg0) if ((lparg0 = (*env)->GetByteArrayElements(env, arg0, NULL)) == NULL) goto fail;
 	if (arg1) if ((lparg1 = (*env)->GetByteArrayElements(env, arg1, NULL)) == NULL) goto fail;
 	if (arg2) if ((lparg2 = (*env)->GetIntArrayElements(env, arg2, NULL)) == NULL) goto fail;
-	rc = (jint)UrlCreateFromPathA((LPCSTR)lparg0, (LPSTR)lparg1, lparg2, arg3);
+	rc = (jint)UrlCreateFromPathA((LPCSTR)lparg0, (LPSTR)lparg1, (LPDWORD)lparg2, arg3);
 fail:
 	if (arg2 && lparg2) (*env)->ReleaseIntArrayElements(env, arg2, lparg2, 0);
 	if (arg1 && lparg1) (*env)->ReleaseByteArrayElements(env, arg1, lparg1, 0);
@@ -18194,7 +18194,7 @@ JNIEXPORT jint JNICALL OS_NATIVE(UrlCreateFromPathW)
 	if (arg0) if ((lparg0 = (*env)->GetCharArrayElements(env, arg0, NULL)) == NULL) goto fail;
 	if (arg1) if ((lparg1 = (*env)->GetCharArrayElements(env, arg1, NULL)) == NULL) goto fail;
 	if (arg2) if ((lparg2 = (*env)->GetIntArrayElements(env, arg2, NULL)) == NULL) goto fail;
-	rc = (jint)UrlCreateFromPathW((LPCWSTR)lparg0, (LPWSTR)lparg1, lparg2, arg3);
+	rc = (jint)UrlCreateFromPathW((LPCWSTR)lparg0, (LPWSTR)lparg1, (LPDWORD)lparg2, arg3);
 fail:
 	if (arg2 && lparg2) (*env)->ReleaseIntArrayElements(env, arg2, lparg2, 0);
 	if (arg1 && lparg1) (*env)->ReleaseCharArrayElements(env, arg1, lparg1, 0);
@@ -19423,4 +19423,3 @@ JNIEXPORT jint JNICALL OS_NATIVE(wcslen)
 	return rc;
 }
 #endif
-
