@@ -102,7 +102,7 @@ ODIN32_LIBS+=-lmsvfw32
 #ODIN32_LIBS+=-lunicode
 #ODIN32_LIBS+=-llibwrap
 #ODIN32_LIBS+=-ljpeglib
-#ODIN32_LIBS+=-lusp10
+ODIN32_LIBS+=-lusp10
 
 
 # -------------------------------------------------------------------- [Linker]
