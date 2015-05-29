@@ -15,6 +15,20 @@
 
 
 #
+# If the macro below is enabled and contains a valid link to an Odin32
+# Netlabs Revision then this commit is 'in-sync'. A commit is 'in-sync' when
+# it's local developer build was using the referenced Odin32 revision.
+# Such 'in-sync' commits are used to mark a specific state, closing of an issue
+# and completion of Milestones.
+#
+# When the macro below is disabled the this commit was done using whatever
+# local developer build of Odin32 was used, typically one with all kinds of
+# debug stuff active.
+#
+export ODIN32_REFERENCE_REVISION:="http://trac.netlabs.org/odin32/changeset?old_path=%2F&old=22105&new_path=%2F&new=22105"
+
+
+#
 # Uncomment to spot functions without prototypes
 #
 #GCC_EXTRA_FLAGS=-Wall
