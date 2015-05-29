@@ -221,18 +221,18 @@ clean:
 
 # --------------------------------------------------------------------- [Rules]
 #
-# Implicit Rules for C sources
+# Pattern Rules for C sources
 # _____________________________________________________________________________
-.c.obj:
+%.obj:%.c defines.h
 	@echo.
 	@echo [$@]
 	gcc $(GCC_EXTRA_FLAGS) -Zomf -o $@ -c $(DEFINES) -I$(JINC1) -I$(JINC2) -I$(OINC1) -I$(OINC2) -I$(OINC3) $*.c
 
 
 #
-# Implicit Rules for C++ sources
+# Pattern Rules for C++ sources
 # _____________________________________________________________________________
-.cpp.obj:
+%.obj:%.cpp defines.h
 	@echo.
 	@echo [$@]
 	g++ $(GCC_EXTRA_FLAGS) -Zomf -o $@ -c $(DEFINES) -I$(JINC1) -I$(JINC2) -I$(OINC1) -I$(OINC2) -I$(OINC3) $*.cpp
