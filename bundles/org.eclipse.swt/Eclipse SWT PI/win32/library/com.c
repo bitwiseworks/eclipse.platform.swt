@@ -14,6 +14,7 @@
 #include "com_stats.h"
 #ifdef __WIN32OS2__
 #include <excpt.h>
+HRESULT WIN32API IIDFromString(LPSTR lpsz, LPIID lpiid);
 #endif
 
 #ifndef COM_NATIVE

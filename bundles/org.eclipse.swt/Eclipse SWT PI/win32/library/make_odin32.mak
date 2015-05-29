@@ -149,11 +149,10 @@ DEFINES+=-DNO_VtblCall__IILorg_eclipse_swt_internal_win32_SHDRAGIMAGE_2J
 # Unresolved externals; revisit later
 DEFINES+=-DNO_PathIsExe
 DEFINES+=-DNO_GdiSetBatchLimit
-DEFINES+=-DNO_IIDFromString
+#DEFINES+=-DNO_IIDFromString
 #DEFINES+=-DNO_MsgWaitForMultipleObjectsEx
 DEFINES+=-DNO_SHGetFolderPathA
 DEFINES+=-DNO_SHGetFolderPathW
-DEFINES+=-DNO_IIDFromString
 DEFINES+=-DNO_SHDoDragDrop
 
 # Define the name of your build-machine here for bldlevel info
