@@ -27,7 +27,7 @@
 
 ///-------------------------------------------------------------------[swt-os2]
 #ifdef __WIN32OS2__
-#define NO_ScriptApplyDigitSubstitution
+//#define NO_ScriptApplyDigitSubstitution
 #define NO_ScriptBreak
 #define NO_ScriptCacheGetHeight
 #define NO_ScriptCPtoX
@@ -35,12 +35,12 @@
 #define NO_ScriptGetCMap
 #define NO_ScriptGetLogicalWidths
 #define NO_ScriptGetFontProperties
-#define NO_ScriptGetProperties
-#define NO_ScriptItemize
+//#define NO_ScriptGetProperties
+//#define NO_ScriptItemize
 #define NO_ScriptJustify
 #define NO_ScriptLayout
 #define NO_ScriptPlace
-#define NO_ScriptRecordDigitSubstitution
+//#define NO_ScriptRecordDigitSubstitution
 #define NO_ScriptShape
 #define NO_ScriptStringAnalyse
 #define NO_ScriptStringFree
